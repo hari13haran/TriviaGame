@@ -9,18 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 40) {
-            VStack(spacing: 20) {
-                Text("Trivia Game")
-                    .purpleTitle()
-                Text("Are you ready to test your skills?")
-                    .foregroundColor(Color("AccentColor"))
+        NavigationView {
+            VStack(spacing: 40) {
+                VStack(spacing: 20) {
+                    Text("Trivia Game")
+                        .purpleTitle()
+                    Text("Are you ready to test your skills?")
+                        .foregroundColor(Color("AccentColor"))
+                }
+                NavigationLink {
+                    TriviaView()
+                } label: {
+                    PrimaryButton(text: "Let's go!")
+                }
             }
-            PrimaryButton(text: "Let's go!")
+            .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.all)
+            .background(Color(red: 0.984313725490196, green: 0.9294117647058824, blue: 0.8470588235294118))
         }
-        .frame(maxWidth:.infinity, maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.all)
-        .background(Color(red: 0.984313725490196, green: 0.9294117647058824, blue: 0.8470588235294118))
     }
 }
 
