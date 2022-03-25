@@ -20,15 +20,20 @@ struct QuestionView: View {
             }
             .padding()
             
-            ProgressBar(progress: 40)
+            ProgressBar(progress: 50)
             
             VStack(alignment: .leading, spacing: 20) {
                 Text("The programming language &#039;Swift&#039; was created to replace what other programming language?")
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.gray)
-                 
+                AnswerRow(answer: Answer(text: "Objective-C", isCorrect: true))
+                AnswerRow(answer: Answer(text: "C#", isCorrect: false))
+                AnswerRow(answer: Answer(text: "Ruby", isCorrect: false))
+                AnswerRow(answer: Answer(text: "C++", isCorrect: false))
             }
+            PrimaryButton(text: "Next")
+            Spacer()
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
