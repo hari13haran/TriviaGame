@@ -14,4 +14,8 @@ extension Text {
             .fontWeight(.heavy)
             .foregroundColor(Color("AccentColor"))
     }
+    func purpleText() -> some View {
+        self.fontWeight(.heavy)
+            .foregroundColor(Color("AccentColor"))
+    }
 }
