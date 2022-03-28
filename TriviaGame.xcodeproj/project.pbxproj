@@ -71,12 +71,12 @@
 			children = (
 				346B3C2B27ECB2690026C5F5 /* TriviaGameApp.swift */,
 				346B3C2F27ECB26B0026C5F5 /* Assets.xcassets */,
-				34F05A0B27EE0C200069C6FA /* Models */,
-				346B3C3C27ECD7980026C5F5 /* Views */,
 				346B3C3927ECD6180026C5F5 /* Components */,
+				346B3C3C27ECD7980026C5F5 /* Views */,
+				34F05A0B27EE0C200069C6FA /* Models */,
+				3495562127F0D4F900AA3895 /* TriviaManager.swift */,
 				346B3C3D27ECDD480026C5F5 /* Extensions.swift */,
 				346B3C3127ECB26B0026C5F5 /* Preview Content */,
-				3495562127F0D4F900AA3895 /* TriviaManager.swift */,
 			);
 			path = TriviaGame;
 			sourceTree = "<group>";
