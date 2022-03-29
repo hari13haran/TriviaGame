@@ -17,26 +17,32 @@ struct QuestionView: View {
                 Text("Trivia Game")
                     .purpleTitle()
                 Spacer()
-                Text("1 out of 10")
+                Text("\(triviaManager.index + 1) out of \(triviaManager.length)")
                     .purpleText()
-            
             }
             .padding()
             
-            ProgressBar(progress: 50)
+            ProgressBar(progress: triviaManager.progress)
             
             VStack(alignment: .leading, spacing: 20) {
-                Text("The programming language &#039;Swift&#039; was created to replace what other programming language?")
+                Text(triviaManager.question)
                     .font(.system(size: 20))
                     .bold()
                     .foregroundColor(.gray)
-                AnswerRow(answer: Answer(text: "Objective-C", isCorrect: true)).environmentObject(triviaManager)
-                AnswerRow(answer: Answer(text: "C#", isCorrect: false)).environmentObject(triviaManager)
-                AnswerRow(answer: Answer(text: "Ruby", isCorrect: false)).environmentObject(triviaManager)
-                AnswerRow(answer: Answer(text: "C++", isCorrect: false)).environmentObject(triviaManager)
+                ForEach(triviaManager.answerChoices, id:\.id) { ans in
+                    AnswerRow(answer: ans).environmentObject(triviaManager)
+                }
             }
-            PrimaryButton(text: "Next")
+            
+            Button {
+                triviaManager.goToNextQuestion()
+            } label: {
+                PrimaryButton(text: "Next", background: triviaManager.answerSelected ? Color("AccentColor") : Color(hue: 1.0, saturation: 0.0, brightness: 0.564, opacity: 0.327))
+            }
+            .disabled(!triviaManager.answerSelected)
+            
             Spacer()
+            
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
