@@ -74,7 +74,7 @@ class TriviaManager: ObservableObject {
         }
     }
     
-    // To increment index & iterate through all the questions
+    // To increment index & iterate through all the questions + set reachedEnd after all questions are completed
     func goToNextQuestion() {
 
         if index + 1 < length {
