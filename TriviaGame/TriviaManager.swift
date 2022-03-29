@@ -30,7 +30,7 @@ class TriviaManager: ObservableObject {
     // To fetch the JSON from API & Decode and Map in Trivia Object & set the total number of questions as length
     func fetchTrivia() async {
         
-        guard let url = URL(string: "https://opentdb.com/api.php?amount=10") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy") else { fatalError("Missing URL") }
         let urlRequest = URLRequest(url: url)
         
         do {
@@ -43,6 +43,12 @@ class TriviaManager: ObservableObject {
             let decodedData = try decoder.decode(Trivia.self, from: data)
             
             DispatchQueue.main.async {
+                // Reset values when play again is invoked
+                self.index = 0
+                self.score = 0
+                self.progress = 0.00
+                self.reachedEnd = false
+                
                 self.trivia = decodedData.results
                 self.length = self.trivia.count
                 self.setQuestion()
